@@ -1,0 +1,1 @@
+["trigger", "./src/", "jsfiles", "*.js", "--", "yarn build"]

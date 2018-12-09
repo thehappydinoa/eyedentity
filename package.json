@@ -1,6 +1,6 @@
 {
-  "name": "sanic-webpack-react",
-  "version": "0.0.0",
+  "name": "eyedentity",
+  "version": "1.0.0",
   "description": "This is a boilerplate based on webpack, react and sanic as a webserver",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,12 @@
     "backtest": "pytest tests.py",
     "test": "react-scripts test"
   },
-  "author": "",
+  "author": "thehappydinoa",
   "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thehappydinoa/eyedentity-backend"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^22.0.0",
@@ -30,7 +34,9 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-grid-gallery": "^0.5.3"
   }
 }
