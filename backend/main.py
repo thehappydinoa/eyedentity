@@ -1,3 +1,4 @@
+from os import remove
 from uuid import uuid4
 
 from sanic import Sanic, response
@@ -19,8 +20,10 @@ async def index(request):
 def create_user(request):
     key = "_".join([request.json.get("username"), str(uuid4())[0:4]]) + ".png"
     wordcloud = generate_wordcloud(request.json.get("sentences"))
-    wordcloud.to_file("wordclouds/" + key)
-    upload_image(key)
+    file = "wordclouds/" + key
+    wordcloud.to_file(file)
+    upload_image(file, key)
+    remove(file)
     return response.json({"key": key})
 
 
