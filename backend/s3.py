@@ -7,11 +7,12 @@ def get_images(bucket="eyedentity"):
     objects = s3.list_objects(Bucket=bucket).get("Contents")
     if not objects:
         return dict()
-    return [key["Key"] for key in objects]
+    return [object['Key'] for object in sorted(objects, key=get_last_modified)]
 
 
 def upload_image(file, key, bucket="eyedentity"):
     return s3.upload_file(file, bucket, key, ExtraArgs={'ACL': 'public-read'})
+
 
 def clear_bucket(bucket="eyedentity"):
     response = s3.list_objects_v2(Bucket=bucket).get("Contents")
