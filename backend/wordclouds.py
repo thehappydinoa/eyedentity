@@ -44,4 +44,4 @@ def generate_wordcloud(text):
         text = " ".join(text)
     wordcloud = AvatarWordCloud(
         contour_width=2, contour_color=(192, 192, 192, 85)).generate(text)
-    return wordcloud.to_image()
+    return wordcloud

@@ -10,5 +10,5 @@ def get_images(bucket="eyedentity"):
     return [key["Key"] for key in objects]
 
 
-def upload_image(data, key, bucket="eyedentity"):
-    return s3.upload_fileobj(data, bucket, key)
+def upload_image(key, bucket="eyedentity"):
+    return s3.upload_file("wordclouds/" + key, bucket, key, ExtraArgs={'ACL': 'public-read'})

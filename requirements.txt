@@ -34,5 +34,5 @@ ujson==1.35
 urllib3==1.24.1
 uvloop==0.11.3
 websockets==5.0.1
-wordcloud==1.5.0
+git+git://github.com/thehappydinoa/word_cloud.git
 yarl==1.2.6
