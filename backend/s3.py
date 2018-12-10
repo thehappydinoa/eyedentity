@@ -7,7 +7,8 @@ def get_images(bucket="eyedentity"):
     objects = s3.list_objects(Bucket=bucket).get("Contents")
     if not objects:
         return dict()
-    return [object['Key'] for object in sorted(objects, key=get_last_modified)]
+    get_last_modified = lambda obj: int(obj['LastModified'].strftime('%s'))
+    return [obj['Key'] for obj in sorted(objects, key=get_last_modified, reverse=True)]
 
 
 def upload_image(file, key, bucket="eyedentity"):
