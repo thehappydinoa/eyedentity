@@ -26619,6 +26619,7 @@ var Dashboard = function (_React$Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
+      this.getImages();
       setInterval(function () {
         return _this3.getImages();
       }, 30000);

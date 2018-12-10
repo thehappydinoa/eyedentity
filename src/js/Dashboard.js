@@ -28,6 +28,7 @@ export default class Dashboard extends React.Component {
   }
 
   componentDidMount() {
+    this.getImages()
     setInterval(() => this.getImages(), 30000)
 
   }
