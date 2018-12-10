@@ -8,7 +8,7 @@
     "start": "python3 run.py",
     "backtest": "pytest tests.py",
     "test": "react-scripts test",
-    "clear": "python3 clear.py"
+    "clear": "python3 -c 'from backend import s3; s3.clear_bucket()'"
   },
   "author": "thehappydinoa",
   "license": "BSD-2-Clause",

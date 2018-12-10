@@ -2,13 +2,7 @@
 
 ![brain](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/155/brain_1f9e0.png)
 
-## Setting up
-
-You can run this via Vagrant, just type this command in your prompt:
-
-    $ vagrant up
-
-## Manual installation
+## Installation
 
 You should make sure you have:
 
@@ -19,7 +13,11 @@ You should make sure you have:
 Then type
 
     $ pip install -r requirements.txt
-    $ npm --save-dev install
-    $ npm run build
+    $ yarn install
+    $ yarn build
 
-Use `npm run start` to run sanic server with react app.
+Use `yarn start` to run sanic server with react app.
+
+## Notes
+
+Use `yarn clear` to clear the s3 bucket

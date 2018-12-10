@@ -18,7 +18,7 @@ async def index(request):
 
 @app.route("/add_sentences", methods=["POST"])
 def create_user(request):
-    key = "_".join([request.json.get("username"), str(uuid4())[0:4]]) + ".png"
+    key = str(uuid4())[:8] + ".png"
     wordcloud = generate_wordcloud(request.json.get("sentences"))
     file = "wordclouds/" + key
     wordcloud.to_file(file)
