@@ -7,7 +7,8 @@
     "build": "webpack --config webpack.config.js",
     "start": "python3 run.py",
     "backtest": "pytest tests.py",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "clear": "python3 clear.py"
   },
   "author": "thehappydinoa",
   "license": "BSD-2-Clause",

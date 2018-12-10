@@ -20,7 +20,8 @@ export default class Dashboard extends React.Component {
           src: "https://eyedentity.s3.amazonaws.com/" + key,
           thumbnail: "https://eyedentity.s3.amazonaws.com/" + key,
           thumbnailWidth: 240,
-          thumbnailHeight: 240
+          thumbnailHeight: 240,
+          caption: key
         }))
         this.setState({images});
       }
@@ -36,7 +37,7 @@ export default class Dashboard extends React.Component {
   render() {
     const gallery = (this.state.images === null)
       ? "Loading..."
-      : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true}/>
+      : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true} margin={5}/>
     return (<div>
       <div style={{
           justifyContent: 'center',
