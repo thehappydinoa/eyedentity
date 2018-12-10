@@ -32,7 +32,7 @@ class ObjectList(object):
         self.update()
 
     def update(self):
-        print("Updating ObjectList")
+        # print("Updating ObjectList")
         self.objects = get_images(bucket=self.bucket)
 
     def return_objects(self):
