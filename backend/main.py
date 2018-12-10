@@ -1,6 +1,8 @@
 from sanic import Sanic, response
 from uuid import uuid4
 
+from os import listdir
+
 from .s3 import get_images, upload_image
 from .wordclouds import generate_wordcloud
 
@@ -11,7 +13,8 @@ app.static('/', './dist')
 
 @app.route("/")
 async def index(request):
-    return await response.file('dist/index.html')
+    return await response.text(listdir("dist"))
+    # return await response.file('dist/index.html')
 
 
 @app.route("/add_sentences", methods=["POST"])
