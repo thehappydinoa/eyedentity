@@ -26617,8 +26617,10 @@ var Dashboard = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this3 = this;
+
       setInterval(function () {
-        return getImages();
+        return _this3.getImages();
       }, 30000);
     }
   }, {
