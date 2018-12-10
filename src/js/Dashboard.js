@@ -19,9 +19,9 @@ export default class Dashboard extends React.Component {
         const images = wordclouds.map((key) => ({
           src: "https://eyedentity.s3.amazonaws.com/" + key,
           thumbnail: "https://eyedentity.s3.amazonaws.com/" + key,
-          thumbnailWidth: 240,
-          thumbnailHeight: 240,
-          caption: key
+          thumbnailWidth: 360,
+          thumbnailHeight: 360,
+          caption: key.replace(".png", "")
         }))
         this.setState({images});
       }
@@ -37,14 +37,9 @@ export default class Dashboard extends React.Component {
   render() {
     const gallery = (this.state.images === null)
       ? "Loading..."
-      : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true} margin={5}/>
-    return (<div>
-      <div style={{
-          justifyContent: 'center',
-          padding: 50
-        }}>
-        {gallery}
-      </div>
+      : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true} margin={5} showImageCount={false}/>
+    return (<div className="center">
+      {gallery}
     </div>)
   }
 }

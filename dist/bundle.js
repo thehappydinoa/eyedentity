@@ -26606,9 +26606,9 @@ var Dashboard = function (_React$Component) {
             return {
               src: "https://eyedentity.s3.amazonaws.com/" + key,
               thumbnail: "https://eyedentity.s3.amazonaws.com/" + key,
-              thumbnailWidth: 240,
-              thumbnailHeight: 240,
-              caption: key
+              thumbnailWidth: 360,
+              thumbnailHeight: 360,
+              caption: key.replace(".png", "")
             };
           });
           _this2.setState({ images: images });
@@ -26628,18 +26628,11 @@ var Dashboard = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var gallery = this.state.images === null ? "Loading..." : _react2.default.createElement(_reactGridGallery2.default, { images: this.state.images, enableImageSelection: false, backdropClosesModal: true, margin: 5 });
+      var gallery = this.state.images === null ? "Loading..." : _react2.default.createElement(_reactGridGallery2.default, { images: this.state.images, enableImageSelection: false, backdropClosesModal: true, margin: 5, showImageCount: false });
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { style: {
-              justifyContent: 'center',
-              padding: 50
-            } },
-          gallery
-        )
+        { className: 'center' },
+        gallery
       );
     }
   }]);
