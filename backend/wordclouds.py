@@ -14,7 +14,7 @@ class PolarityColorFunc(object):
         self.negative_func = get_single_color_func(negative)
 
     def get_color_func(self, word):
-        analysis = TextBlob(word)
+        analysis = TextBlob(word).correct()
         polarity = analysis.sentiment.polarity
         if polarity > 0:
             return self.positive_func

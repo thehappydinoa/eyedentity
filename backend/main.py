@@ -18,6 +18,10 @@ app.static("/", "./dist")
 async def index_path(request):
     return await response.file("dist/index.html")
 
+@app.route("/status")
+async def status_path(request):
+    return await response.text("OK")
+
 
 @app.route("/add_sentences", methods=["POST"])
 def add_sentences_path(request):
