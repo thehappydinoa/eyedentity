@@ -7,6 +7,7 @@ from sanic import Sanic, response
 from .s3 import ObjectList, get_images, upload_image
 from .wordclouds import generate_wordcloud
 
+
 wordclouds = ObjectList()
 
 app = Sanic()
