@@ -26590,12 +26590,13 @@ var Dashboard = function (_React$Component) {
     _this.state = {
       images: null
     };
+    _this.getImages = _this.getImages.bind(_this);
     return _this;
   }
 
   _createClass(Dashboard, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+    key: 'getImages',
+    value: function getImages() {
       var _this2 = this;
 
       _axios2.default.get('/wordclouds').then(function (res) {
@@ -26612,6 +26613,13 @@ var Dashboard = function (_React$Component) {
           _this2.setState({ images: images });
         }
       });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      setInterval(function () {
+        return getImages();
+      }, 30000);
     }
   }, {
     key: 'render',

@@ -1,7 +1,7 @@
-from sanic import Sanic, response
+# from os import listdir
 from uuid import uuid4
 
-from os import listdir
+from sanic import Sanic, response
 
 from .s3 import get_images, upload_image
 from .wordclouds import generate_wordcloud

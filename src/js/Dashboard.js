@@ -9,9 +9,10 @@ export default class Dashboard extends React.Component {
     this.state = {
       images: null
     }
+    this.getImages = this.getImages.bind(this)
   }
 
-  componentDidMount() {
+  getImages() {
     axios.get('/wordclouds').then(res => {
       const wordclouds = res.data.wordclouds;
       if (wordclouds.length > 0) {
@@ -24,6 +25,11 @@ export default class Dashboard extends React.Component {
         this.setState({images});
       }
     })
+  }
+
+  componentDidMount() {
+    setInterval(() => getImages(), 30000)
+
   }
 
   render() {
