@@ -13,8 +13,7 @@ app.static('/', './dist')
 
 @app.route("/")
 async def index(request):
-    return await response.text(listdir("./dist"))
-    # return await response.file('dist/index.html')
+    return await response.file('dist/index.html')
 
 
 @app.route("/add_sentences", methods=["POST"])
