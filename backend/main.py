@@ -1,10 +1,13 @@
+from asyncio import sleep
 from os import remove
 from uuid import uuid4
 
 from sanic import Sanic, response
 
-from .s3 import get_images, upload_image
+from .s3 import ObjectList, get_images, upload_image
 from .wordclouds import generate_wordcloud
+
+wordclouds = ObjectList()
 
 app = Sanic()
 
@@ -12,12 +15,12 @@ app.static("/", "./dist")
 
 
 @app.route("/")
-async def index(request):
+async def index_path(request):
     return await response.file("dist/index.html")
 
 
 @app.route("/add_sentences", methods=["POST"])
-def create_user(request):
+def add_sentences_path(request):
     key = str(uuid4())[:8] + ".png"
     wordcloud = generate_wordcloud(request.json.get("sentences"))
     file = "wordclouds/" + key
@@ -28,5 +31,13 @@ def create_user(request):
 
 
 @app.route("/wordclouds")
-def wordclouds(request):
-    return response.json({"wordclouds": get_images()})
+def wordclouds_path(request):
+    return response.json({"wordclouds": wordclouds.return_objects()})
+
+
+async def update_list(object_list=wordclouds):
+    while True:
+        await sleep(10)
+        object_list.update()
+
+app.add_task(update_list())

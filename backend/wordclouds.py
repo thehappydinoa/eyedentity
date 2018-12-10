@@ -43,5 +43,5 @@ def generate_wordcloud(text):
     if not isinstance(text, str):
         text = " ".join(text)
     wordcloud = AvatarWordCloud(
-        contour_width=2, contour_color=(192, 192, 192, 85)).generate(text)
+        contour_width=2, contour_color=(113, 113, 113, 90)).generate(text)
     return wordcloud

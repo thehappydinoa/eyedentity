@@ -26623,7 +26623,7 @@ var Dashboard = function (_React$Component) {
       this.getImages();
       setInterval(function () {
         return _this3.getImages();
-      }, 30000);
+      }, 5000);
     }
   }, {
     key: 'render',
