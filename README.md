@@ -21,3 +21,9 @@ Use `yarn start` to run sanic server with react app.
 ## Notes
 
 Use `yarn clear` to clear the s3 bucket
+
+## TODO
+
+-   Synonyms
+-   Background Tasks
+-   
