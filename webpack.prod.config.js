@@ -1,25 +1,25 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // Constant with our paths
 const paths = {
-  DIST: path.resolve(__dirname, 'dist'),
-  SRC: path.resolve(__dirname, 'src'),
-  JS: path.resolve(__dirname, 'src/js'),
+  DIST: path.resolve(__dirname, "dist"),
+  SRC: path.resolve(__dirname, "src"),
+  JS: path.resolve(__dirname, "src/js"),
 };
 
 // Webpack configuration
 module.exports = {
-  entry: path.join(paths.JS, 'app.js'),
+  entry: path.join(paths.JS, "app.js"),
   output: {
     path: paths.DIST,
-    filename: 'bundle.js'
+    filename: "bundle.js"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(paths.SRC, 'index.html'),
+      template: path.join(paths.SRC, "index.html"),
       minify: {
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
@@ -27,7 +27,7 @@ module.exports = {
         removeRedundantAttributes: true
       },
     }),
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin("style.css"),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,   // enable source maps to map errors (stack traces) to modules
       output: {
@@ -35,8 +35,8 @@ module.exports = {
       },
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+      "process.env": {
+        "NODE_ENV": JSON.stringify("production")
       }
     }),
   ],
@@ -46,24 +46,24 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
-          'babel-loader',
+          "babel-loader",
         ],
       },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          use: 'css-loader',
+          use: "css-loader",
         }),
       },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
-          'file-loader',
+          "file-loader",
         ],
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
 };

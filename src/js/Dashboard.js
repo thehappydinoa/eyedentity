@@ -1,19 +1,19 @@
-import React from 'react';
-import Gallery from 'react-grid-gallery';
+import React from "react";
+import Gallery from "react-grid-gallery";
 
-import axios from 'axios';
+import axios from "axios";
 
 export default class Dashboard extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       images: null
-    }
-    this.getImages = this.getImages.bind(this)
+    };
+    this.getImages = this.getImages.bind(this);
   }
 
   getImages() {
-    axios.get('/wordclouds').then(res => {
+    axios.get("/wordclouds").then((res) => {
       const wordclouds = res.data.wordclouds;
       if (wordclouds.length > 0) {
         const images = wordclouds.map((key) => ({
@@ -22,15 +22,15 @@ export default class Dashboard extends React.Component {
           thumbnailWidth: 360,
           thumbnailHeight: 360,
           caption: key.replace(".png", "")
-        }))
+        }));
         this.setState({images});
       }
-    })
+    });
   }
 
   componentDidMount() {
-    this.getImages()
-    setInterval(() => this.getImages(), 5000)
+    this.getImages();
+    setInterval(() => this.getImages(), 5000);
 
   }
 
@@ -40,6 +40,6 @@ export default class Dashboard extends React.Component {
       : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true} margin={5} showImageCount={false}/>
     return (<div className="center">
       {gallery}
-    </div>)
+    </div>);
   }
 }

@@ -5,7 +5,7 @@ from uuid import uuid4
 from sanic import Sanic, response
 from sanic_compress import Compress
 
-from .s3 import ObjectList, get_images, upload_image
+from .s3 import ObjectList, upload_image
 from .wordclouds import generate_wordcloud
 
 wordclouds = ObjectList()
@@ -13,6 +13,14 @@ wordclouds = ObjectList()
 app = Sanic()
 Compress(app)
 app.static("/", "./dist")
+
+
+async def add_sentences(sentences, key):
+    wordcloud = generate_wordcloud(sentences)
+    file = "wordclouds/" + key
+    wordcloud.to_file(file)
+    upload_image(file, key)
+    remove(file)
 
 
 @app.route("/")
@@ -27,12 +35,9 @@ async def status_path(request):
 
 @app.route("/add_sentences", methods=["POST"])
 def add_sentences_path(request):
+    sentences = request.json.get("sentences")
     key = str(uuid4())[:8] + ".png"
-    wordcloud = generate_wordcloud(request.json.get("sentences"))
-    file = "wordclouds/" + key
-    wordcloud.to_file(file)
-    upload_image(file, key)
-    remove(file)
+    app.add_task(add_sentences(sentences, key))
     return response.json({"key": key})
 
 
