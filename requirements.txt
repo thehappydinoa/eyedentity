@@ -27,6 +27,7 @@ pytest-sanic==0.1.15
 python-dateutil==2.7.5
 s3transfer==0.1.13
 sanic==0.8.3
+sanic_compress==0.1.1
 singledispatch==3.4.0.3
 six==1.11.0
 textblob==0.15.2

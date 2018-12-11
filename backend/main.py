@@ -3,21 +3,22 @@ from os import remove
 from uuid import uuid4
 
 from sanic import Sanic, response
+from sanic_compress import Compress
 
 from .s3 import ObjectList, get_images, upload_image
 from .wordclouds import generate_wordcloud
 
-
 wordclouds = ObjectList()
 
 app = Sanic()
-
+Compress(app)
 app.static("/", "./dist")
 
 
 @app.route("/")
 async def index_path(request):
     return await response.file("dist/index.html")
+
 
 @app.route("/status")
 async def status_path(request):
