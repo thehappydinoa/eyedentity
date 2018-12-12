@@ -24,6 +24,7 @@ Use `yarn clear` to clear the s3 bucket
 
 ## TODO
 
--   Synonyms
--   Background Tasks
--   
+-   [x] Background Tasks
+-   [ ] Submitting gif
+-   [ ] Synonyms
+-   [ ] Business Cards
