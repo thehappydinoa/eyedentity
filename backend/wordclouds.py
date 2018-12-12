@@ -2,7 +2,7 @@ import matplotlib
 import numpy as np
 from PIL import Image
 from textblob import TextBlob
-from wordcloud import STOPWORDS, WordCloud, get_single_color_func
+from wordcloud import WordCloud, get_single_color_func
 
 matplotlib.use("TkAgg")
 

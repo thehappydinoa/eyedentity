@@ -37,7 +37,7 @@ export default class Dashboard extends React.Component {
   render() {
     const gallery = (this.state.images === null)
       ? "Loading..."
-      : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true} margin={5} showImageCount={false}/>
+      : <Gallery images={this.state.images} enableImageSelection={false} backdropClosesModal={true} margin={5} showImageCount={false}/>;
     return (<div className="center">
       {gallery}
     </div>);
