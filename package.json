@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "build:prod": "webpack --config webpack.prod.config.js",
+    "build:prod": "webpack -p --config webpack.prod.config.js",
     "start": "python3 run.py",
     "test": "react-scripts test",
     "clear": "python3 -c 'from backend import s3; s3.clear_bucket()'",
-    "postinstall": "webpack --config webpack.prod.config.js"
+    "postinstall": "webpack -p --config webpack.prod.config.js"
   },
   "author": "thehappydinoa",
   "license": "MIT",

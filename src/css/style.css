@@ -1,3 +1,7 @@
 .center {
   margin: 50px;
 }
+
+#lightboxBackdrop {
+  background: rgba(210, 210, 210, 0.85);
+}

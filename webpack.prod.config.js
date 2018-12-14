@@ -30,6 +30,9 @@ module.exports = {
     new ExtractTextPlugin("style.css"),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,   // enable source maps to map errors (stack traces) to modules
+      compress: {
+        warnings: false,
+      },
       output: {
         comments: false, // remove all comments
       },
@@ -56,7 +59,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|ico)$/,
         use: [
           "file-loader",
         ],

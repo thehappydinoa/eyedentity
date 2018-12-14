@@ -30,7 +30,12 @@ export default class Dashboard extends React.Component {
 
   componentDidMount() {
     this.getImages();
-    setInterval(() => this.getImages(), 5000);
+    const params = new URLSearchParams(location.search);
+    console.log(params.get("interval"))
+    const seconds = (params.get("interval") === null)
+      ? 30
+      : params.get("interval");
+    setInterval(() => this.getImages(), seconds * 1000);
 
   }
 
