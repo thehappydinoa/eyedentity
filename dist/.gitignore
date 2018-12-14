@@ -2,6 +2,6 @@
 # *
 # Except this file
 !.gitignore
-# bundle.js
-# style.css
-# index.html
+bundle.js
+style.css
+index.html
