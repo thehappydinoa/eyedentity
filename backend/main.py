@@ -29,8 +29,8 @@ async def index_path(request):
 
 
 @app.route("/status")
-async def status_path(request):
-    return await response.text("OK")
+def status_path(request):
+    return response.text("OK")
 
 
 @app.route("/add_sentences", methods=["POST"])
