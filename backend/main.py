@@ -51,4 +51,5 @@ async def update_list(object_list=wordclouds):
         await sleep(10)
         object_list.update()
 
+
 # app.add_task(update_list())

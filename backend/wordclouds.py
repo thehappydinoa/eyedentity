@@ -34,7 +34,8 @@ class AvatarWordCloud(WordCloud):
         kwargs["mode"] = "RGBA"
         kwargs["background_color"] = (255, 0, 0, 0)  # "white"
         kwargs["color_func"] = PolarityColorFunc(
-            "#7fbf7f", "#9999ff", "#ff8b94")  # ("green", "blue", "red")
+            "#7fbf7f", "#9999ff", "#ff8b94"
+        )  # ("green", "blue", "red")
         kwargs["width"], kwargs["height"] = avatar_image.size
         super(AvatarWordCloud, self).__init__(**kwargs)
 
@@ -43,5 +44,6 @@ def generate_wordcloud(text):
     if not isinstance(text, str):
         text = " ".join(text)
     wordcloud = AvatarWordCloud(
-        contour_width=2, contour_color=(113, 113, 113, 90)).generate(text)
+        contour_width=2, contour_color=(113, 113, 113, 90)
+    ).generate(text)
     return wordcloud
