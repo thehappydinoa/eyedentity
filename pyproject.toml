@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "eyedentity-server"
+version = "0.1.0"
+description = ""
+authors = ["Aidan Holland <thehappydinoa@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+matplotlib = "3.0.2"
+nltk = "3.4.5"
+numpy = "1.15.4"
+Pillow = "6.2.0"
+sanic = "0.8.3"
+boto3 = "1.9.62"
+sanic_compress = "0.1.1"
+wordcloud = {git = "https://github.com/thehappydinoa/word_cloud.git"}
+textblob = "0.15.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "4.0.1"
+pytest-sanic = "0.1.15"
+mypy = "^0.812"
+flake8 = "^3.9.2"
+black = {version = "^21.5b2", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
