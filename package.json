@@ -40,5 +40,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-grid-gallery": "^0.5.3"
+  },
+  "engines": {
+    "yarn": "^1.22.10"
   }
 }
