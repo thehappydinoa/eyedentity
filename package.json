@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thehappydinoa/eyedentity-backend"
+    "url": "https://github.com/thehappydinoa/eyedentity"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
