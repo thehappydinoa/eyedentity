@@ -11,7 +11,7 @@ matplotlib = "3.0.2"
 nltk = "3.6.6"
 numpy = "1.15.4"
 Pillow = "6.2.0"
-sanic = "0.8.3"
+sanic = "20.12.7"
 boto3 = "1.9.62"
 sanic_compress = "0.1.1"
 wordcloud = {git = "https://github.com/thehappydinoa/word_cloud.git"}
